@@ -1,0 +1,9 @@
+#!/bin/bash
+clear
+open(){
+    col="$(tput cols)"
+    while IFS= read -r l; do
+        printf "%*b\n" $(( ($((${#l}/3)) + col) / 2)) \\0${l}
+    done < "$1"
+}
+open "eid.present"
